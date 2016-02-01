@@ -5,8 +5,11 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>欢迎 ： <span  th:text="${session.user}?${session.user.name}:'（您未登录）'" ></span> </h1>
+    <!--这里报错是因为idea的bug，官方说会在以后修复，不知道啥时候呢。-->
+    <h1> <span th:text="${result}"></span></h1>
+    <h1>欢迎 ： <span  th:text="${session.user}?${session.user.getUsername()}:'（您未登录）'" ></span> </h1>
     <a th:href="@{/register}">点击注册</a>
     <a th:href="@{/login}" th:if="${session.user==null}">点击登录</a>
+    <a th:href="@{/loginOut}" th:unless="${session.user==null}">退出登陆</a>
 </body>
 </html>
