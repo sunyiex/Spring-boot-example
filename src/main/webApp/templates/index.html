@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>欢迎 ： <span  th:text="${session.user}?${session.user.name}:'（您未登录）'" ></span> </h1>
+    <a th:href="@{/register}">点击注册</a>
+    <a th:href="@{/login}" th:if="${session.user==null}">点击登录</a>
+</body>
+</html>
